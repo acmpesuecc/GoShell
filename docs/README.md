@@ -4,6 +4,22 @@
 
 ## Introduction
 
+```
+  ,----..              .--.--.     ,---,                ,--,    ,--,   
+ /   /   \            /  /    '. ,--.' |              ,--.'|  ,--.'|   
+|   :     :    ,---. |  :  /`. / |  |  :              |  | :  |  | :   
+.   |  ;. /   '   ,'\;  |  |--`  :  :  :              :  : '  :  : '   
+.   ; /--`   /   /   |  :  ;_    :  |  |,--.   ,---.  |  ' |  |  ' |   
+;   | ;  __ .   ; ,. :\  \    `. |  :  '   |  /     \ '  | |  '  | |   
+|   : |.' .''   | |: : `----.   \|  |   /' : /    /  ||  | :  |  | :   
+.   | '_.' :'   | .; : __ \  \  |'  :  | | |.    ' / |'  : |__'  : |__ 
+'   ; : \  ||   :    |/  /`--'  /|  |  ' | :'   ;   /||  | '.'|  | '.'|
+'   | '/  .' \   \  /'--'.     / |  :  :_:,''   |  / |;  :    ;  :    ;
+|   :    /    `----'   `--'---'  |  | ,'    |   :    ||  ,   /|  ,   / 
+ \   \ .'                        `--''       \   \  /  ---`-'  ---`-'  
+  `---`                                       `----'                   
+```
+
 Welcome to **GoShell**, an ambitious and dynamic shell application written in Go. This project aims to bring robust, modular, and user-friendly shell commands to your fingertips. Whether you’re managing files or navigating directories, GoShell provides an intuitive command-line interface to streamline your workflows.
 
 ## Features
@@ -78,5 +94,21 @@ GoShell is licensed under the [MIT License](LICENSE). See the LICENSE file for m
 
 ## Final Thoughts
 
-We hope GoShell makes your command-line experience more enjoyable and efficient. Try it out, and let us know what you think!
+I hope GoShell makes your command-line experience more enjoyable and efficient. Try it out, and let us know what you think!
+
+```
+            ___
+        .-"; ! ;"-.
+      .'!  : | :  !`.
+     /\  ! : ! : !  /\
+    /\ |  ! :|: !  | /\
+   (  \ \ ; :!: ; / /  )
+  ( `. \ | !:|:! | / .' )
+  (`. \ \ \!:|:!/ / / .')
+   \ `.`.\ |!|! |/,'.' /
+    `._`.\\\!!!// .'_.'
+       `.`.\\|//.'.'
+        |`._`n'_.'| 
+        "----^----"
+```
 
