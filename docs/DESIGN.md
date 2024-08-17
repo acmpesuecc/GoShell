@@ -13,7 +13,41 @@
 
 ## Architecture Diagram 🏗️
 
-![GoShell Architecture](./docs/architecture_diagram.png)
+                       +-----------------------+
+                       |       main.go          |
+                       +----------+------------+
+                                  |
+                                  v
+                       +-----------------------+
+                       |    Command Handler    |
+                       |    (Cobra Library)    |
+                       +----------+------------+
+                                  |
+                                  v
+        +------------------------+-----------------------+
+        |                        |                       |
+        v                        v                       v
++----------------+    +----------------+    +----------------+
+| File Operations|    | Directory Ops  |    |   Utilities    |
+| (cat, rm, ls)  |    | (cd, pwd)      |    | (utils.go)     |
++----------------+    +----------------+    +----------------+
+                                  |
+                                  v
+                       +-----------------------+
+                       |     API Handlers      |
+                       |    (handler.go)       |
+                       +-----------------------+
+
+                       +-----------------------+
+                       |      Documentation    |
+                       |      (README, DESIGN) |
+                       +-----------------------+
+
+                       +-----------------------+
+                       |        Testing        |
+                       |  (Unit & Integration) |
+                       +-----------------------+
+
 
 ## Components 🧩
 
