@@ -12,7 +12,7 @@
 - **Modularity**: Clear separation of concerns with well-defined interfaces.
 
 ## Architecture Diagram 🏗️
-
+```
                        +-----------------------+
                        |       main.go          |
                        +----------+------------+
@@ -48,6 +48,7 @@
                        |  (Unit & Integration) |
                        +-----------------------+
 
+```
 
 ## Components 🧩
 
