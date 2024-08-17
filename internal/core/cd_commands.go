@@ -8,8 +8,7 @@ import (
 	"path/filepath"
 )
 
-// Command to change the current working directory
-var cdCmd = &cobra.Command{
+var CdCmd = &cobra.Command{
 	Use:   "cd",
 	Short: "Change the current working directory",
 	Args:  cobra.ExactArgs(1),
@@ -37,9 +36,4 @@ var cdCmd = &cobra.Command{
 		fmt.Println("Directory changed successfully")
 		fmt.Println(newDir)
 	},
-}
-
-func init() {
-	// Register the cd command
-	rootCmd.AddCommand(cdCmd)
 }

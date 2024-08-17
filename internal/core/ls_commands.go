@@ -71,7 +71,7 @@ func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bo
 	}
 }
 
-var lsCmd = &cobra.Command{
+var LsCmd = &cobra.Command{
 	Use:   "ls",
 	Short: "List directory contents",
 	Run: func(cmd *cobra.Command, args []string) {
@@ -80,17 +80,17 @@ var lsCmd = &cobra.Command{
 		appendSlashToDir, _ := cmd.Flags().GetBool("F")
 		sortByTime, _ := cmd.Flags().GetBool("t")
 		listInode, _ := cmd.Flags().GetBool("i")
-		humanReadable, _ := cmd.Flags().GetBool("h")
+		humanReadable, _ := cmd.Flags().GetBool("V")
 
 		listFiles(dir, showHidden, appendSlashToDir, sortByTime, listInode, humanReadable)
 	},
 }
 
 func init() {
-	lsCmd.Flags().StringP("directory", "d", ".", "Directory to list")
-	lsCmd.Flags().BoolP("a", "a", false, "Include hidden files")
-	lsCmd.Flags().BoolP("F", "F", false, "Append indicator (one of */=>@|) to entries")
-	lsCmd.Flags().BoolP("t", "t", false, "Sort by modification time, newest first")
-	lsCmd.Flags().BoolP("i", "i", false, "Print the index number of each file")
-	lsCmd.Flags().BoolP("h", "h", false, "With -l and -s, print sizes like 1K 234M 2G")
+	LsCmd.Flags().StringP("directory", "d", ".", "Directory to list")
+	LsCmd.Flags().BoolP("a", "a", false, "Include hidden files")
+	LsCmd.Flags().BoolP("F", "F", false, "Append indicator (one of */=>@|) to entries")
+	LsCmd.Flags().BoolP("t", "t", false, "Sort by modification time, newest first")
+	LsCmd.Flags().BoolP("i", "i", false, "Print the index number of each file")
+	LsCmd.Flags().BoolP("V", "V", false, "With -l and -s, print sizes like 1K 234M 2G")
 }

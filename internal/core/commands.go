@@ -36,9 +36,3 @@ var dateCmd = &cobra.Command{
 			today.Year())
 	},
 }
-
-func init() {
-	// Register the commands
-	rootCmd.AddCommand(pwdCmd)
-	rootCmd.AddCommand(dateCmd)
-}

@@ -3,37 +3,12 @@ package core
 import (
 	"bufio"
 	"fmt"
+	"github.com/spf13/cobra"
 	"log"
 	"os"
-
-	"github.com/spf13/cobra"
 )
 
-func removeFile(fileName string) {
-	fi, err := os.Lstat(fileName)
-	if err != nil {
-		log.Fatalf("Error checking file: %v", err)
-	}
-	if fi.Mode().IsDir() {
-		fmt.Printf("%s is a directory\n", fileName)
-	} else {
-		err := os.Remove(fileName)
-		if err != nil {
-			log.Fatalf("Error removing file: %v", err)
-		}
-		fmt.Printf("%s removed successfully\n", fileName)
-	}
-}
-
-func removeDir(path string) {
-	err := os.RemoveAll(path)
-	if err != nil {
-		log.Fatalf("Error removing directory: %v", err)
-	}
-	fmt.Printf("Directory %s removed successfully\n", path)
-}
-
-var rmCmd = &cobra.Command{
+var RmCmd = &cobra.Command{
 	Use:   "rm",
 	Short: "Remove files or directories",
 	Run: func(cmd *cobra.Command, args []string) {
@@ -97,7 +72,26 @@ var rmCmd = &cobra.Command{
 	},
 }
 
-func init() {
-	// Register the rm command
-	rootCmd.AddCommand(rmCmd)
+func removeFile(fileName string) {
+	fi, err := os.Lstat(fileName)
+	if err != nil {
+		log.Fatalf("Error checking file: %v", err)
+	}
+	if fi.Mode().IsDir() {
+		fmt.Printf("%s is a directory\n", fileName)
+	} else {
+		err := os.Remove(fileName)
+		if err != nil {
+			log.Fatalf("Error removing file: %v", err)
+		}
+		fmt.Printf("%s removed successfully\n", fileName)
+	}
+}
+
+func removeDir(path string) {
+	err := os.RemoveAll(path)
+	if err != nil {
+		log.Fatalf("Error removing directory: %v", err)
+	}
+	fmt.Printf("Directory %s removed successfully\n", path)
 }

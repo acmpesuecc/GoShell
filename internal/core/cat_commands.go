@@ -10,8 +10,7 @@ import (
 	"github.com/thanhpk/ascii"
 )
 
-// Command to concatenate and display file contents
-var catCmd = &cobra.Command{
+var CatCmd = &cobra.Command{
 	Use:   "cat",
 	Short: "Concatenate and display file contents",
 	Args:  cobra.ArbitraryArgs,
@@ -67,9 +66,4 @@ func displayFilesWithLineNumbers(files []string) {
 			fmt.Printf("    %d %s\n", i+1, line)
 		}
 	}
-}
-
-func init() {
-	// Register the cat command
-	rootCmd.AddCommand(catCmd)
 }

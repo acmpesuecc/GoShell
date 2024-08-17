@@ -6,8 +6,10 @@ import (
 
 // InitCommands initializes and adds all commands to the provided rootCmd
 func InitCommands(rootCmd *cobra.Command) {
-	rootCmd.AddCommand(lsCmd)
-	rootCmd.AddCommand(catCmd)
-	rootCmd.AddCommand(rmCmd)
-	rootCmd.AddCommand(cdCmd)
+	rootCmd.AddCommand(LsCmd)
+	rootCmd.AddCommand(CatCmd)
+	rootCmd.AddCommand(RmCmd)
+	rootCmd.AddCommand(CdCmd)
+	rootCmd.AddCommand(dateCmd)
+	rootCmd.AddCommand(pwdCmd)
 }
