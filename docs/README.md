@@ -64,7 +64,7 @@ Here are some examples of how to use GoShell:
 - **Concatenate Files:**
 
     ```bash
-    ./goshell cat file1.txt file2.txt n
+    ./goshell cat n file1.txt file2.txt
     ```
 
 - **Remove a File:**
