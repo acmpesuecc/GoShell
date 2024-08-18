@@ -81,7 +81,7 @@ Contributions are welcome! Please follow these guidelines to contribute:
 2. **Create a Branch**: Make your changes in a separate branch.
 3. **Submit a Pull Request**: Describe your changes and submit a pull request for review.
 
-For more details, check out our [CONTRIBUTING.md](docs/CONTRIBUTING.md).
+For more details, check out our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
