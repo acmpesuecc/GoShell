@@ -16,8 +16,6 @@ var RmCmd = &cobra.Command{
 			fmt.Println("Usage: rm [flags] [file ...]")
 			return
 		}
-
-		// Check for flags
 		interactive, _ := cmd.Flags().GetBool("interactive")
 		confirmAll, _ := cmd.Flags().GetBool("confirm-all")
 		recursive, _ := cmd.Flags().GetBool("recursive")
