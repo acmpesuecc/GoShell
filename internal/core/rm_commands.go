@@ -17,15 +17,17 @@ var RmCmd = &cobra.Command{
 			return
 		}
 
-		flag, files := args[0], args[1:]
+		// Check for flags
+		interactive, _ := cmd.Flags().GetBool("interactive")
+		confirmAll, _ := cmd.Flags().GetBool("confirm-all")
+		recursive, _ := cmd.Flags().GetBool("recursive")
+		force, _ := cmd.Flags().GetBool("force")
 
-		switch flag {
-		case "-i":
-			for _, file := range files {
+		if interactive {
+			for _, file := range args {
 				RemoveI_Method(file)
 			}
-
-		case "-I":
+		} else if confirmAll {
 			fmt.Print("Remove all specified files? (y/n): ")
 			reader := bufio.NewReader(os.Stdin)
 			char, _, err := reader.ReadRune()
@@ -34,31 +36,35 @@ var RmCmd = &cobra.Command{
 				return
 			}
 			if char == 'Y' || char == 'y' {
-				for _, file := range files {
+				for _, file := range args {
 					removeFile(file)
 				}
 			} else {
 				fmt.Println("Files not removed")
 			}
-
-		case "-r":
-			if len(files) != 1 {
+		} else if recursive {
+			if len(args) != 1 {
 				fmt.Println("Usage: rm -r [directory]")
 				return
 			}
-			removeDir(files[0])
-
-		case "-f":
-			for _, file := range files {
+			removeDir(args[0])
+		} else if force {
+			for _, file := range args {
 				removeFile(file)
 			}
-
-		default:
+		} else {
 			for _, file := range args {
 				removeFile(file)
 			}
 		}
 	},
+}
+
+func init() {
+	RmCmd.Flags().BoolP("interactive", "i", false, "Prompt before each removal")
+	RmCmd.Flags().BoolP("confirm-all", "I", false, "Prompt once before removing all files")
+	RmCmd.Flags().BoolP("recursive", "r", false, "Remove directories and their contents recursively")
+	RmCmd.Flags().BoolP("force", "f", false, "Ignore nonexistent files and arguments, never prompt")
 }
 
 func removeFile(fileName string) {

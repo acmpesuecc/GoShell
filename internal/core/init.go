@@ -4,7 +4,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// InitCommands initializes and adds all commands to the provided rootCmd
 func InitCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(LsCmd)
 	rootCmd.AddCommand(CatCmd)
@@ -13,4 +12,5 @@ func InitCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(dateCmd)
 	rootCmd.AddCommand(pwdCmd)
 	rootCmd.AddCommand(TouchCmd)
+	rootCmd.AddCommand(MkdirCmd)
 }
