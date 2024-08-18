@@ -79,10 +79,6 @@ We’re constantly looking to improve GoShell. Here are some areas where your co
 - **Localization**: Add support for multiple languages to reach a wider audience.
 - **Integration**: Explore integration with other tools or platforms for enhanced functionality.
 
-## Code of Conduct
-
-Please adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) when participating in the project to maintain a respectful and inclusive community.
-
 ## Questions?
 
 If you have any questions or need help, feel free to open an issue or reach out to us on GitHub Discussions.
