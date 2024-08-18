@@ -22,18 +22,7 @@ var RmCmd = &cobra.Command{
 		switch flag {
 		case "-i":
 			for _, file := range files {
-				fmt.Printf("Remove %s? (y/n): ", file)
-				reader := bufio.NewReader(os.Stdin)
-				char, _, err := reader.ReadRune()
-				if err != nil {
-					fmt.Println("Error reading input:", err)
-					continue
-				}
-				if char == 'Y' || char == 'y' {
-					removeFile(file)
-				} else {
-					fmt.Printf("%s not removed\n", file)
-				}
+				RemoveI_Method(file)
 			}
 
 		case "-I":
@@ -94,4 +83,18 @@ func removeDir(path string) {
 		log.Fatalf("Error removing directory: %v", err)
 	}
 	fmt.Printf("Directory %s removed successfully\n", path)
+}
+
+func RemoveI_Method(file string) {
+	fmt.Printf("Remove %s? (y/n): ", file)
+	reader := bufio.NewReader(os.Stdin)
+	char, _, err := reader.ReadRune()
+	if err != nil {
+		fmt.Println("Error reading input:", err)
+	}
+	if char == 'Y' || char == 'y' {
+		removeFile(file)
+	} else {
+		fmt.Printf("%s not removed\n", file)
+	}
 }

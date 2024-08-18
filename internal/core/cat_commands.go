@@ -17,7 +17,7 @@ var CatCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) > 1 && args[len(args)-2] == "mx" {
 			mergeFiles(args[:len(args)-2], args[len(args)-1])
-		} else if len(args) > 0 && args[0] == "-n" {
+		} else if len(args) > 0 && args[0] == "n" {
 			displayFilesWithLineNumbers(args[1:])
 		} else {
 			displayFiles(args)
