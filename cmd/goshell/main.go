@@ -13,14 +13,12 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
-	// Register commands
 	rootCmd.AddCommand(core.CatCmd)
 	rootCmd.AddCommand(core.RmCmd)
 	rootCmd.AddCommand(core.CdCmd)
 	rootCmd.AddCommand(core.LsCmd)
 	rootCmd.AddCommand(core.MkdirCmd)
 	rootCmd.AddCommand(core.TouchCmd)
-	// Add other commands as needed
 }
 
 func main() {

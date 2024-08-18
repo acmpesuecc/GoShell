@@ -15,7 +15,6 @@ var CatCmd = &cobra.Command{
 	Short: "Concatenate and display file contents",
 	Args:  cobra.ArbitraryArgs,
 	Run: func(cmd *cobra.Command, args []string) {
-		// Get flag values
 		number, _ := cmd.Flags().GetBool("number")
 		numberNonBlank, _ := cmd.Flags().GetBool("number-nonblank")
 		squeezeBlank, _ := cmd.Flags().GetBool("squeeze-blank")

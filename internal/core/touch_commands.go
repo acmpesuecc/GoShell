@@ -37,9 +37,3 @@ func File_Maker(fileName string) {
 		log.Fatalf("Failed to check if file exists: %v", err)
 	}
 }
-
-//
-//func FileRangeMake(file_names string) {
-//	//	touch <filename{<start>..<finish>}>
-//
-//}

@@ -16,14 +16,11 @@ type FileTimeStruct struct {
 	Ftime time.Time
 }
 
-// Helper function for error handling
 func checkError(err error, context string) {
 	if err != nil {
 		log.Fatalf("Error %s: %v", context, err)
 	}
 }
-
-// List files with various options
 func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bool, listInode bool, humanReadable bool) {
 	files, err := os.ReadDir(dir)
 	checkError(err, "reading directory")
