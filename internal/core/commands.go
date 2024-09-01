@@ -8,7 +8,7 @@ import (
 )
 
 // Command to print the current working directory
-var pwdCmd = &cobra.Command{
+var PwdCmd = &cobra.Command{
 	Use:   "pwd",
 	Short: "Print the current working directory",
 	Run: func(cmd *cobra.Command, args []string) {
