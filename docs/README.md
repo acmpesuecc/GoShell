@@ -36,7 +36,7 @@ To get started with GoShell, follow these steps:
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/IshaanNene/GoShell.git
+    git clone git@github.com:acmpesuecc/GoShell.git
     ```
 
 2. **Navigate to the Project Directory:**
