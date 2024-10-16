@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// Command to print the current working directory
 var PwdCmd = &cobra.Command{
 	Use:   "pwd",
 	Short: "Print the current working directory",
@@ -18,8 +17,7 @@ var PwdCmd = &cobra.Command{
 	},
 }
 
-// Command to print the current date and time
-var dateCmd = &cobra.Command{
+var DateCmd = &cobra.Command{
 	Use:   "date",
 	Short: "Print the current date and time",
 	Run: func(cmd *cobra.Command, args []string) {
