@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a15dfe25-d419-46dc-b4de-865ffedea09e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/goshell/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/goshell/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/goshell" beforeDir="false" afterPath="$PROJECT_DIR$/goshell" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/core/commands.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/core/commands.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/core/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/core/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/integration/goshell_integration_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/integration/goshell_integration_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/goshell_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/goshell_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +45,7 @@
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/ishaannene/Desktop/Projects/GoShell",
+    "last_opened_file_path": "/Users/ishaannene/Desktop/GoShell",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
