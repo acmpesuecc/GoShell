@@ -17,12 +17,10 @@ func main() {
 	rootCmd.AddCommand(core.MkdirCmd)
 	rootCmd.AddCommand(core.RmCmd)
 	rootCmd.AddCommand(core.TouchCmd)
-	rootCmd.AddCommand(core.CatCmd)
 	rootCmd.AddCommand(core.PwdCmd)
 	rootCmd.AddCommand(core.CatCmd)
 	rootCmd.AddCommand(core.DateCmd)
-	rootCmd.AddCommand(core.CatCmd)
-
+	rootCmd.AddCommand(core.Iamwho)
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}

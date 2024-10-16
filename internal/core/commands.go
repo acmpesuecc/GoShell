@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os"
+	"os/user"
 	"time"
 )
 
@@ -32,5 +33,17 @@ var DateCmd = &cobra.Command{
 			today.Second(),
 			zone,
 			today.Year())
+	},
+}
+var Iamwho = &cobra.Command{
+	Use:   "iamwho",
+	Short: "The whoami command",
+	Run: func(cmd *cobra.Command, args []string) {
+		g, err := user.Current()
+		if err != nil {
+			fmt.Println(err.Error())
+		} else {
+			fmt.Println(g.Username)
+		}
 	},
 }

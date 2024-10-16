@@ -89,5 +89,5 @@ func init() {
 	LsCmd.Flags().BoolP("F", "F", false, "Append indicator (one of */=>@|) to entries")
 	LsCmd.Flags().BoolP("t", "t", false, "Sort by modification time, newest first")
 	LsCmd.Flags().BoolP("i", "i", false, "Print the index number of each file")
-	LsCmd.Flags().BoolP("V", "V", false, "With -l and -s, print sizes like 1K 234M 2G")
+	LsCmd.Flags().BoolP("V", "V", false, "print sizes like 1K 234M 2G")
 }
