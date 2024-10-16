@@ -9,7 +9,7 @@ func InitCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(CatCmd)
 	rootCmd.AddCommand(RmCmd)
 	rootCmd.AddCommand(CdCmd)
-	rootCmd.AddCommand(dateCmd)
+	rootCmd.AddCommand(DateCmd)
 	rootCmd.AddCommand(PwdCmd)
 	rootCmd.AddCommand(TouchCmd)
 	rootCmd.AddCommand(MkdirCmd)
