@@ -9,8 +9,8 @@ import (
 
 func main() {
 	rootCmd := &cobra.Command{
-		Use:   "mycli",
-		Short: "A CLI tool for file and directory operations",
+		Use:   "./goshell",
+		Short: "For all usage",
 	}
 	rootCmd.AddCommand(core.LsCmd)
 	rootCmd.AddCommand(core.CdCmd)
