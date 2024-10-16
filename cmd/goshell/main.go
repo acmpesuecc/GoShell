@@ -9,20 +9,18 @@ import (
 
 func main() {
 	rootCmd := &cobra.Command{
-		Use:   "mycli",
-		Short: "A CLI tool for file and directory operations",
+		Use:   "./goshell",
+		Short: "For all usage",
 	}
 	rootCmd.AddCommand(core.LsCmd)
 	rootCmd.AddCommand(core.CdCmd)
 	rootCmd.AddCommand(core.MkdirCmd)
 	rootCmd.AddCommand(core.RmCmd)
 	rootCmd.AddCommand(core.TouchCmd)
-	rootCmd.AddCommand(core.CatCmd)
 	rootCmd.AddCommand(core.PwdCmd)
 	rootCmd.AddCommand(core.CatCmd)
 	rootCmd.AddCommand(core.DateCmd)
-	rootCmd.AddCommand(core.CatCmd)
-
+	rootCmd.AddCommand(core.Iamwho)
 	if err := rootCmd.Execute(); err != nil {
 		os.Exit(1)
 	}
