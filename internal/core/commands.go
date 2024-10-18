@@ -14,7 +14,7 @@ var PwdCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		dir, err := os.Getwd()
 		checkError(err, "getting current working directory")
-		fmt.Println(dir)
+		fmt.Fprintln(cmd.OutOrStdout(), dir)
 	},
 }
 

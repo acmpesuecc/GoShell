@@ -1,21 +1,27 @@
 package unit
 
 import (
-	"github.com/IshaanNene/GoShell/internal/core"
-	"github.com/spf13/cobra"
+	"bytes"
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/IshaanNene/GoShell/internal/core"
+	"github.com/spf13/cobra"
 )
 
 // Helper function to execute a Cobra command with arguments and return the output
 func executeCommand(cmd *cobra.Command, args ...string) (string, error) {
 	cmd.SetArgs(args)
-	output, err := cmd.ExecuteC()
+	// Capture the output
+	var buf bytes.Buffer
+	cmd.SetOut(&buf)
+
+	_, err := cmd.ExecuteC()
 	if err != nil {
 		return "", err
 	}
-	return output.UsageString(), nil
+	return buf.String(), nil
 }
 
 func TestTouchCommand(t *testing.T) {
@@ -37,16 +43,24 @@ func TestTouchCommand(t *testing.T) {
 
 func TestLsCommand(t *testing.T) {
 	// Setup: Create some files to list
-	file1 := "file1.txt"
-	file2 := "file2.txt"
-	os.Create(file1)
-	os.Create(file2)
+
+	// Create a temporary directory for testing
+	dir := t.TempDir()
+
+	file1 := dir + "/" + "file1.txt"
+	file2 := dir + "/" + "file2.txt"
+
+	// Create some test files and directories
+	os.WriteFile(file1, []byte("content1"), 0644)
+	os.WriteFile(file2, []byte("content2"), 0644)
+
 	defer os.Remove(file1)
 	defer os.Remove(file2)
 
 	// Expected output should be the filenames listed
 	expected := "file1.txt\nfile2.txt\n"
 
+	core.LsCmd.Flags().Set("directory", dir)
 	// Call the ls command
 	got, err := executeCommand(core.LsCmd)
 	if err != nil {
@@ -72,7 +86,7 @@ func TestPwdCommand(t *testing.T) {
 	}
 
 	// Check if the output matches the expected directory
-	if got != expected {
+	if got != expected+"\n" {
 		t.Errorf("Expected %q but got %q", expected, got)
 	}
 }

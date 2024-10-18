@@ -2,13 +2,15 @@ package core
 
 import (
 	"fmt"
-	"github.com/dustin/go-humanize"
-	"github.com/spf13/cobra"
+	"io"
 	"log"
 	"os"
 	"sort"
 	"syscall"
 	"time"
+
+	"github.com/dustin/go-humanize"
+	"github.com/spf13/cobra"
 )
 
 type FileTimeStruct struct {
@@ -21,7 +23,7 @@ func checkError(err error, context string) {
 		log.Fatalf("Error %s: %v", context, err)
 	}
 }
-func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bool, listInode bool, humanReadable bool) {
+func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bool, listInode bool, humanReadable bool, out io.Writer) {
 	files, err := os.ReadDir(dir)
 	checkError(err, "reading directory")
 
@@ -36,7 +38,7 @@ func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bo
 			return fileTimes[i].Ftime.Before(fileTimes[j].Ftime)
 		})
 		for _, file := range fileTimes {
-			fmt.Println(file.Fname)
+			fmt.Fprintln(out, file.Fname)
 		}
 		return
 	}
@@ -52,7 +54,7 @@ func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bo
 			info, err := os.Stat(file.Name())
 			checkError(err, "getting file stat")
 			stat := info.Sys().(*syscall.Stat_t)
-			fmt.Printf("%d ", stat.Ino)
+			fmt.Fprintf(out, "%d ", stat.Ino)
 		}
 
 		if appendSlashToDir && file.IsDir() {
@@ -61,9 +63,9 @@ func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bo
 		if humanReadable {
 			info, err := os.Stat(file.Name())
 			checkError(err, "getting file info")
-			fmt.Printf("%s %s\n", humanize.Bytes(uint64(info.Size())), name)
+			fmt.Fprintf(out, "%s %s\n", humanize.Bytes(uint64(info.Size())), name)
 		} else {
-			fmt.Println(name)
+			fmt.Fprintln(out, name)
 		}
 	}
 }
@@ -79,7 +81,7 @@ var LsCmd = &cobra.Command{
 		listInode, _ := cmd.Flags().GetBool("i")
 		humanReadable, _ := cmd.Flags().GetBool("V")
 
-		listFiles(dir, showHidden, appendSlashToDir, sortByTime, listInode, humanReadable)
+		listFiles(dir, showHidden, appendSlashToDir, sortByTime, listInode, humanReadable, cmd.OutOrStdout())
 	},
 }
 
