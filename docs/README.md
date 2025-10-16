@@ -36,7 +36,7 @@ To get started with GoShell, follow these steps:
 1. **Clone the Repository:**
 
     ```bash
-    git clone git@github.com:acmpesuecc/GoShell.git
+    https://github.com/acmpesuecc/GoShell.git
     ```
 
 2. **Navigate to the Project Directory:**
@@ -48,14 +48,35 @@ To get started with GoShell, follow these steps:
 3. **Build the Application:**
 
     ```bash
+    FOR LINUX/MAC:
     go build -o goshell ./cmd/goshell
     ```
+    ```bash
+    FOR WINDOWS:
+    go build-o .\bin\gosh.exe .\cmd\goshell
+    This creates both binary for windows and linux so u can run it on wsl as well.
+    ```
+    ```bash
+    Checking if it worked
+    LINUX/MAC/WSL:
+    ./goshell
+    this should give you a list of commands, this confirms go shell is working
+    so other commands would be :
+    ./goshell iamwho
+
+    WINDOWS (USE POWERSHELL)
+    ./bin/goshell 
+    Commands would be of the form :
+    ./bin/goshell iamwho
+    ```
+    
 
 ## Usage
 
 Here are some examples of how to use GoShell:
 
 - **Change Directory:**
+- **Note these are linux commands windows command template listed above **
 
     ```bash
     ./goshell cd /path/to/directory
@@ -111,4 +132,5 @@ I hope GoShell makes your command-line experience more enjoyable and efficient. 
         |`._`n'_.'| 
         "----^----"
 ```
+
 
