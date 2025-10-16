@@ -6,8 +6,8 @@ import (
 	"github.com/spf13/cobra"
 	"log"
 	"os"
+	"path/filepath"
 	"sort"
-	"syscall"
 	"time"
 )
 
@@ -49,17 +49,18 @@ func listFiles(dir string, showHidden bool, appendSlashToDir bool, sortByTime bo
 		}
 
 		if listInode {
-			info, err := os.Stat(file.Name())
+			info, err := os.Stat(filepath.Join(dir, file.Name()))
 			checkError(err, "getting file stat")
-			stat := info.Sys().(*syscall.Stat_t)
-			fmt.Printf("%d ", stat.Ino)
+			if inode, ok := getInode(info); ok {
+				fmt.Printf("%d ", inode)
+			}
 		}
 
 		if appendSlashToDir && file.IsDir() {
 			name += "/"
 		}
 		if humanReadable {
-			info, err := os.Stat(file.Name())
+			info, err := os.Stat(filepath.Join(dir, file.Name()))
 			checkError(err, "getting file info")
 			fmt.Printf("%s %s\n", humanize.Bytes(uint64(info.Size())), name)
 		} else {
