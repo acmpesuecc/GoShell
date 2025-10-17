@@ -53,6 +53,7 @@ To get started with GoShell, follow these steps:
     ```
     ```bash
     FOR WINDOWS:
+    USE POWERSHELL and use correct path formats
     go build-o .\bin\gosh.exe .\cmd\goshell
     This creates both binary for windows and linux so u can run it on wsl as well.
     ```
@@ -132,5 +133,6 @@ I hope GoShell makes your command-line experience more enjoyable and efficient. 
         |`._`n'_.'| 
         "----^----"
 ```
+
 
 
