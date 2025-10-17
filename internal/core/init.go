@@ -13,4 +13,5 @@ func InitCommands(rootCmd *cobra.Command) {
 	rootCmd.AddCommand(PwdCmd)
 	rootCmd.AddCommand(TouchCmd)
 	rootCmd.AddCommand(MkdirCmd)
+	rootCmd.AddCommand(EchoCmd)
 }
