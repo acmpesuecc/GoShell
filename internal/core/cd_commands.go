@@ -14,8 +14,7 @@ var CdCmd = &cobra.Command{
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		targetDir := args[0]
-		
-		// Handle parent directory shortcut
+
 		if targetDir == ".." {
 			currentDir, err := os.Getwd()
 			if err != nil {
@@ -23,27 +22,18 @@ var CdCmd = &cobra.Command{
 			}
 			targetDir = filepath.Dir(currentDir)
 		}
-		
-		// Convert to absolute path
-		absPath, err := filepath.Abs(targetDir)
+
+		err := os.Chdir(targetDir)
 		if err != nil {
-			log.Fatalf("Error resolving path: %v", err)
+			log.Fatalf("Error changing directory: %v", err)
 		}
-		
-		// Check if directory exists
-		fileInfo, err := os.Stat(absPath)
-		if os.IsNotExist(err) {
-			log.Fatalf("Directory does not exist: %s", absPath)
-		}
+
+		newDir, err := os.Getwd()
 		if err != nil {
-			log.Fatalf("Error accessing directory: %v", err)
+			log.Fatalf("Error getting new directory: %v", err)
 		}
-		if !fileInfo.IsDir() {
-			log.Fatalf("Not a directory: %s", absPath)
-		}
-		
-		// Output the path with special prefix for shell wrapper
-		fmt.Printf("GOSHELL_CD:%s\n", absPath)
+
+		fmt.Println("Directory changed successfully")
+		fmt.Println(newDir)
 	},
 }
-
