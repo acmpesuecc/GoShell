@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/IshaanNene/GoShell/internal/core"
 	"github.com/spf13/cobra"
+	"github.com/IshaanNene/GoShell/internal/core"
 )
 
 func main() {
@@ -12,6 +12,7 @@ func main() {
 		Use:   "./goshell",
 		Short: "For all usage",
 	}
+	core.InitCommands(rootCmd)
 	rootCmd.AddCommand(core.LsCmd)
 	rootCmd.AddCommand(core.CdCmd)
 	rootCmd.AddCommand(core.MkdirCmd)
