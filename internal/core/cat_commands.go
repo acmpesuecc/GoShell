@@ -76,5 +76,4 @@ func displayFile(file string, number, numberNonBlank, squeezeBlank bool) {
 			fmt.Println(line)
 		}
 	}
-	fmt.Println()
 }
